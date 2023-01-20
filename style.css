@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&family=Roboto+Slab:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #282828;
+}
+
+/* Cabecalho */
+
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 0px;
+    background-color: #555555;
+    height: 120px;
+}
+
+.cab-logo > a > img{
+    border-radius: 100%;
+    border: 10px solid #555555;
+    margin-top: 50px;
+    max-height: 120px;
+}
+
+
+
+
+.cab-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 70px;
+    margin-top: 25px;
+}
+
+.cab-nav > a {
+    font-size: 20px;
+    font-family: 'Roboto Slab', serif;
+    text-decoration: none;
+    color: black;
+    transition: all .2s ease-in-out;
+}
+
+.cab-nav > a:hover {
+    transform: scale(1.3);
+    text-shadow: 0px 0px 15px black;
+}
+
+
+
+
+.cab-busc {
+    position: relative;
+    display: flex;
+    border: 1.5px solid black;
+    padding: 5px;
+    margin-top: 25px;
+}
+
+.cab-busc > input {
+    box-decoration-break: none;
+    background-color: #555555;
+    border: none;
+    text-decoration: black;
+    padding-left: 10px;
+    outline: none;
+}
+
+.cab-busc > input::placeholder {
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.cab-busc > a > img {
+    max-height: 20px;
+    padding-right: 5px;
+}
+
+/* main */
+
+main {
+    margin: 50px 30px;
+}
+
+/* Carrossel */
+
+.mainCarrossel {
+    position: relative;
+    background-color: #555555;
+    margin-bottom: 50px;
+    background-image: radial-gradient(circle, #555555 60%, #282828 100%);
+}
+
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: 0;
+  font-size: 50px;
+  line-height: 250px;
+  width: 70px;
+  color: #fff;
+  transition: all 600ms ease-in-out;
+  opacity: 0.4;
+  background: linear-gradient(to left, transparent 0%, black 200%);
+  cursor: pointer;
+  border: none;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+  opacity: 1;
+}
+
+.arrow-right {
+    padding-right: 15px;
+    right: 0;
+    left: auto;
+    text-align: right;
+    background: linear-gradient(to right, transparent 0%, black 200%);
+}
+
+.carrossel {
+    display: flex;
+    flex-flow: row nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carrossel::-webkit-scrollbar {
+    display: none;
+}
+
+.itemCarrossel {
+    padding: 15px;
+    min-width: 700px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    flex-shrink: 0;
+    justify-content: center;
+}
+
+.itemCarrossel > img {
+    box-shadow: 0px 0px 15px white;
+}
+
+.textoCarrossel {
+    background-color: #404040;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0px 100px;
+    padding-left: 10px;
+    border: 10px solid #3f0000;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px white;
+    align-items: center;
+}
+
+.tituloCarrossel {
+    font-family: 'Roboto Slab', serif;
+    font-size: 32px;
+    color: #d8d8d8;
+    text-align: center;
+}
+
+.textoCarrossel > span {
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    color: #d8d8d8;
+}
+
+/* Filmes */
+
+
+.mainConteudo {
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr;
+    grid-template-rows: 1fr, 1fr;
+}
+
+.mainFilmes {
+    grid-column: 1/5;
+    grid-row: 1/1;
+    display: flex;
+    flex-direction: column;
+    background-color: #555555;
+}
+
+
+
+.mF, .mS{
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    width: 1200px;
+    height: 380px;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    gap: 60px 10px;
+    margin: 0 auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    transition: height 1.5s;
+    overflow: hidden;
+}
+
+
+.mF::-webkit-scrollbar, .mS::-webkit-scrollbar{
+    display: none;
+}
+
+
+.mF_filmes > a, .mS_series > a{
+    width: 230px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.mF_filmes > a > img, .mS_series > a > img {
+    height: 230px;
+    width: 153px;
+    box-shadow: 0px 0px 15px white;
+}
+
+.mF_filmes > a > span, .mS_series > a > span {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    color: #d8d8d8;
+    font-size: 18px;
+}
+
+.mF_button {
+    width: 100px;
+    align-self: flex-end;
+}
+
+
+
+.mainSerie {
+    border: 2px solid cyan;
+    grid-column: 1/5;
+    grid-row: 2/2;
+    display: block;
+}
+
+
+
+.mainFamoso {
+    border: 2px solid green;
+    grid-column: 5/6;
+    grid-row: 1/3;
+}
+
+.mFS {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px;
+}
+
+.mFS_famoso > a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.mFS_famoso > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Footer */
+
+.rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: gray;
+    padding: 10px;
+}
+
+.imgRodape > a {
+    margin: 0px 15px;
+}
+
+.linkRodape {
+    margin: 10px 0px;
+}
+
+.linkRodape > a {
+    color: black;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0px 25px;
+}
+
+.copyRodape {
+    font-size: 20px;
+}

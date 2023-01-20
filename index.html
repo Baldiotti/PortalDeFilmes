@@ -3,9 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title>Portal de Filmes</title>
 </head>
 <body>
-    
+    <header class="cabecalho">
+        <div class="cab-logo">
+            <a href="index.html">
+                <img src="imagens/logo.png" alt="Logo">
+            </a>
+        </div>
+        <div>
+            <nav class="cab-nav">
+                <a href="#">Filmes</a>
+                <a href="#">Series</a>
+                <a href="#">Tranding</a>
+                <a href="#">Famosos</a>
+            </nav>
+        </div>
+        <div class="cab-busc">
+            <input type="text" placeholder="Pesquisar...">
+            <a href="#" id="teste">
+                <img src="imagens/pesquisar.svg" alt="pesquisar">
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="mainCarrossel">
+            
+            <button class="arrow-left control" aria-label="Previous image">◀</button>
+            <button class="arrow-right control" aria-label="Next Image">▶</button>
+            
+            <div class="carrossel" id="carrossel">
+                <div class="itemCarrossel currentItem">
+                    <img src="https://picsum.photos/500/400" alt="posterFilme">
+                    <div class="textoCarrossel">
+                        <h3 class="tituloCarrossel">Titulo</h3>
+                        <span class="resumoCarrossel">Texto</span>
+                        <span class="lancamentoCarrossel">Lançamento: 10/10/2000</span>
+                        <p class="popularidadeCarrossel">Popularidade: 0.0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mainConteudo">
+            <div class="mainFilmes">
+                <div class="mF" id="mF">
+                    <div class="mF_filmes">
+                        <a href="#">
+                            <img src="https://picsum.photos/100/200" alt="Poster Filme">
+                            <span>Título</span>
+                        </a>
+                    </div>
+                </div>
+                <button class="mF_button">Ver mais...</button>
+            </div>
+            <div class="mainSerie">
+                <div class="mS" id="mS">
+                    <div class="mS_series">
+                        <a href="#">
+                            <img src="https://picsum.photos/100/200" alt="Poster Serie">
+                            <span>Título</span>
+                        </a>
+                    </div>
+                </div>
+                <button class="mS_button">Ver mais...</button>
+            </div>
+            <div class="mainFamoso">
+                <div class="mFS" id="mFS">
+                    <div class="mFS_famoso">
+                        <a href="#">
+                            <img src="https://picsum.photos/100/200" alt="Foto Famoso">
+
+                            <div class="mFS_escrito">
+                                <span>Nome</span>
+                                <span>Area de atuação</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <button class="mFS_button">Ver mais...</button>
+            </div>
+        </div>
+    </main>
+    <footer class="rodape">
+        <div class="linkRodape">
+            <a href="#">Filmes</a>
+            <a href="#">Séries</a>
+        </div>
+        <div class="imgRodape">
+            <a href="#"><img src="imagens/instagram.svg" alt="Instagram"></a>
+            <a href="#"><img src="imagens/github.svg" alt="GitHub"></a>
+            <a href="#"><img src="imagens/linkedin.svg" alt="LinkedIn"></a>
+        </div>
+        <div class="copyRodape"><p>Copyright &copy; 2023 - <a href="#">Augusto Baldiotti</a></p></div>
+    </footer>
 </body>
 </html>
