@@ -8,6 +8,10 @@
 
 body {
     background-color: #282828;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }
 
 /* Cabecalho */
@@ -40,17 +44,21 @@ body {
     margin-top: 25px;
 }
 
-.cab-nav > a {
+.cab-nav > button {
+    border: none;
+    background-color: transparent;
     font-size: 20px;
     font-family: 'Roboto Slab', serif;
     text-decoration: none;
     color: black;
     transition: all .2s ease-in-out;
+    padding: 10px;
 }
 
-.cab-nav > a:hover {
+.cab-nav > button:hover {
     transform: scale(1.3);
     text-shadow: 0px 0px 15px black;
+    cursor: pointer;
 }
 
 
@@ -144,7 +152,8 @@ main {
     display: none;
 }
 
-.itemCarrossel {
+.itemCarrossel > a {
+    text-decoration: none;
     padding: 15px;
     min-width: 700px;
     max-width: 1200px;
@@ -156,7 +165,7 @@ main {
     justify-content: center;
 }
 
-.itemCarrossel > img {
+.itemCarrossel > a > img {
     box-shadow: 0px 0px 15px white;
 }
 
@@ -187,7 +196,7 @@ main {
     color: #d8d8d8;
 }
 
-/* Filmes */
+/* mainConteudo */
 
 
 .mainConteudo {
@@ -202,19 +211,31 @@ main {
     display: flex;
     flex-direction: column;
     background-color: #555555;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.mainFilmeTitulo, .mainSerieTitulo, .mainFamosoTitulo {
+    font-family: 'Roboto Slab', serif;
+    padding: 5px;
+    width: 250px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 30px 0px 0px 50px;
+    box-shadow: -3px 5px 2px #3f0000,  -3px 5px 15px white;
 }
 
 
-
 .mF, .mS{
-    padding-top: 40px;
+    padding: 65px 0px 0px 0px;
     display: flex;
     flex-direction: row;
     width: 1200px;
-    height: 380px;
+    height: 400px;
     justify-content: space-evenly;
     flex-flow: row wrap;
-    gap: 60px 10px;
+    gap: 70px 10px;
     margin: 0 auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -222,11 +243,9 @@ main {
     overflow: hidden;
 }
 
-
 .mF::-webkit-scrollbar, .mS::-webkit-scrollbar{
     display: none;
 }
-
 
 .mF_filmes > a, .mS_series > a{
     width: 230px;
@@ -254,26 +273,58 @@ main {
     font-size: 18px;
 }
 
-.mF_button {
-    width: 100px;
-    align-self: flex-end;
+.mainSerie {
+    grid-column: 1/5;
+    grid-row: 2/2;
+    display: flex;
+    flex-direction: column;
+    background-color: #555555;
+    border-radius: 10px;
+    margin: 20px;
 }
 
 
+.maisMenos {
+    align-self: flex-end;
+    position: relative;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
 
-.mainSerie {
-    border: 2px solid cyan;
-    grid-column: 1/5;
-    grid-row: 2/2;
-    display: block;
+.menosHori {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 60px; 
+    transition: all .5s ease-in-out;
+}
+
+.menosVert {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 60px;
+    transition: all .5s ease-in-out;
 }
 
 
 
 .mainFamoso {
-    border: 2px solid green;
     grid-column: 5/6;
     grid-row: 1/3;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #555555;
+    border-radius: 10px;
+    block-size: fit-content;
+}
+
+.mainFamosoTitulo {
+    width: 150px;
+    margin: 20px 0px;
 }
 
 .mFS {
@@ -281,23 +332,22 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 50px;
     padding: 30px;
 }
 
-.mFS_famoso > a{
+.mFS_famoso > a {
+    text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-
 }
 
-.mFS_famoso > div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+.mFS_escrito {
+    font-family: 'Nunito', sans-serif;
+    color: #d8d8d8;
+    font-size: 18px;
 }
 
 /* Footer */
@@ -307,7 +357,7 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    background-color: gray;
+    background-color: #555555;
     padding: 10px;
 }
 
@@ -315,17 +365,21 @@ main {
     margin: 0px 15px;
 }
 
-.linkRodape {
-    margin: 10px 0px;
+.imgRodape > a > img {
+    height: 60px;
+    transition: all .2s ease-in-out;
 }
 
-.linkRodape > a {
-    color: black;
-    font-size: 25px;
-    font-weight: 600;
-    margin: 0px 25px;
+.imgRodape > a > img:hover {
+    transform: scale(1.3);
+    text-shadow: 0px 0px 15px black;
 }
 
 .copyRodape {
     font-size: 20px;
+}
+
+.copyRodape > p > a {
+    color: black;
+    font-family: 'Roboto Slab', serif;
 }

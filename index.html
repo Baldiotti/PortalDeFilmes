@@ -16,10 +16,10 @@
         </div>
         <div>
             <nav class="cab-nav">
-                <a href="#">Filmes</a>
-                <a href="#">Series</a>
-                <a href="#">Tranding</a>
-                <a href="#">Famosos</a>
+                <button id="btnFilme">Filmes</button>
+                <button id="btnSerie">Series</button>
+                <button id="btnFamoso">Famosos</button>
+                <button id="btnSobre">Sobre</button>
             </nav>
         </div>
         <div class="cab-busc">
@@ -49,6 +49,7 @@
         </div>
         <div class="mainConteudo">
             <div class="mainFilmes">
+                <h2 class="mainFilmeTitulo">Filmes Populares</h2>
                 <div class="mF" id="mF">
                     <div class="mF_filmes">
                         <a href="#">
@@ -57,9 +58,13 @@
                         </a>
                     </div>
                 </div>
-                <button class="mF_button">Ver mais...</button>
+                <div class="maisMenosMF maisMenos">
+                    <img src="imagens/menosHori.png" alt="menos" class="menosHori" id="menosHorimF">
+                    <img src="imagens/menosVert.png" alt="menos" class="menosVert" id="menosVertmF">
+                </div>
             </div>
             <div class="mainSerie">
+                <h2 class="mainSerieTitulo">Series Populares</h2>
                 <div class="mS" id="mS">
                     <div class="mS_series">
                         <a href="#">
@@ -68,36 +73,33 @@
                         </a>
                     </div>
                 </div>
-                <button class="mS_button">Ver mais...</button>
+                <div class="maisMenosMS maisMenos">
+                    <img src="imagens/menosHori.png" alt="menos" class="menosHori" id="menosHorimS">
+                    <img src="imagens/menosVert.png" alt="menos" class="menosVert" id="menosVertmS">
+                </div>
             </div>
             <div class="mainFamoso">
+                <h2 class="mainFamosoTitulo">Famosos</h2>
                 <div class="mFS" id="mFS">
                     <div class="mFS_famoso">
                         <a href="#">
                             <img src="https://picsum.photos/100/200" alt="Foto Famoso">
 
-                            <div class="mFS_escrito">
-                                <span>Nome</span>
-                                <span>Area de atuação</span>
-                            </div>
+                            <span class="mFS_escrito">Nome</span>
                         </a>
                     </div>
                 </div>
-                <button class="mFS_button">Ver mais...</button>
             </div>
         </div>
     </main>
     <footer class="rodape">
-        <div class="linkRodape">
-            <a href="#">Filmes</a>
-            <a href="#">Séries</a>
-        </div>
         <div class="imgRodape">
-            <a href="#"><img src="imagens/instagram.svg" alt="Instagram"></a>
-            <a href="#"><img src="imagens/github.svg" alt="GitHub"></a>
-            <a href="#"><img src="imagens/linkedin.svg" alt="LinkedIn"></a>
+            <a href="https://www.instagram.com/augustobma/" target="_blank"><img src="imagens/instagram.png" alt="Instagram"></a>
+            <a href="https://github.com/Baldiotti" target="_blank"><img src="imagens/github.png" alt="GitHub"></a>
+            <a href="www.linkedin.com/in/augusto-baldiotti" target="_blank"><img src="imagens/linkedin.png" alt="LinkedIn"></a>
         </div>
         <div class="copyRodape"><p>Copyright &copy; 2023 - <a href="#">Augusto Baldiotti</a></p></div>
     </footer>
 </body>
 </html>
+<a href=""></a>

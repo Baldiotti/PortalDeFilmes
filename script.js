@@ -26,19 +26,20 @@ for(j = 0; j < 4; j++){
                 case 'carrossel':
                     texto = texto + `
                     <div class="itemCarrossel currentItem">
-                    <img src="https://image.tmdb.org/t/p/w400/${filme.poster_path}">
+                    <a href="https://descricao.html?type=movie&id=${filme.id}"><img src="https://image.tmdb.org/t/p/w400/${filme.poster_path}">
                     <div class="textoCarrossel">
                     <h3 class="tituloCarrossel">${filme.title}</h3>
                     <span class="resumoCarrossel"><b>Resumo:</b> ${filme.overview}</span>
                     <span class="lancamentoCarrossel"><b>Lançamento:</b> ${data.toLocaleDateString()}</span>
                     <span class="popularidadeCarrossel"><b>Popularidade:</b> ${filme.vote_average}</span>
                     </div>
+                    </a>
                     </div>`;
                     break;
                 case 'mF':
                     texto = texto + `
                     <div class="mF_filmes">
-                        <a href="#">
+                        <a href="https://descricao.html?type=movie&id=${filme.id}">
                             <img src="https://image.tmdb.org/t/p/w154/${filme.poster_path}" alt="Poster Filme">
                             <span>${filme.title}</span>
                         </a>
@@ -47,7 +48,7 @@ for(j = 0; j < 4; j++){
                 case 'mS':
                     texto = texto + `
                     <div class="mS_series">
-                        <a href="#">
+                        <a href="https://descricao.html?type=tv&id=${filme.id}">
                             <img src="https://image.tmdb.org/t/p/w154/${filme.poster_path}" alt="Poster Serie">
                             <span>${filme.name}</span>
                         </a>
@@ -56,7 +57,7 @@ for(j = 0; j < 4; j++){
                 case 'mFS':
                     texto = texto + `
                     <div class="mFS_famoso">
-                        <a href="#">
+                        <a href="https://descricao.html?type=person&id=${filme.id}">
                             <img src="https://image.tmdb.org/t/p/w154/${filme.profile_path}" alt="Foto Famoso">
                             <span class="mFS_escrito">${filme.name}</span>
                         </a>
@@ -74,8 +75,14 @@ for(j = 0; j < 4; j++){
 onload = () => {
     document.querySelector('.arrow-left').onclick = () => passatela('esq');
     document.querySelector('.arrow-right').onclick = () => passatela('dir');
-    document.querySelector('.mF_button').onclick = () => expandeFilme('mF');
-    document.querySelector('.mS_button').onclick = () => expandeFilme('mS');
+    document.querySelector('.maisMenosMF').onclick = () => expandeFilme('mF');
+    document.querySelector('.maisMenosMS').onclick = () => expandeFilme('mS');
+    document.querySelector('#btnFilme').onclick = () => centraliza('mainFilmes');
+    document.querySelector('#btnSerie').onclick = () => centraliza('mainSerie');
+    document.querySelector('#btnFamoso').onclick = () => centraliza('mainFamoso');
+    document.querySelector('#btnSobre').onclick = function () {
+        location.href = "index.html";
+    };
 };
 
 let currentItem = 0;
@@ -100,7 +107,6 @@ const passatela = (e) => {
 
     items.forEach((item) => item.classList.remove("currentItem"));
 
-    console.log(currentItem);
     items[currentItem].scrollIntoView({
         behavior: "smooth",
         block: "nearest"
@@ -114,12 +120,29 @@ const passatela = (e) => {
 
 const expandeFilme = (e) => {
     let el = document.querySelector(`.${e}`);
-    if(el.style.height == '700px')
+    if(el.style.height == '800px'){
         el.style.height = '400px'
-    else
-        el.style.height = '700px'
-}
+        document.getElementById(`menosHori${e}`).style.transform = 'rotate(-180deg)'
+        document.getElementById(`menosVert${e}`).style.transform = 'rotate(-180deg)'
+    }
+    else {
+        el.style.height = '800px';
+        document.getElementById(`menosHori${e}`).style.transform = 'rotate(180deg)';
+        document.getElementById(`menosVert${e}`).style.transform = 'rotate(90deg)';
+        setTimeout(centraliza, 500, el.parentNode);
+    }
+};
 
 
 
-
+const centraliza = (e) => {
+    let sup;
+    if(e == 'mainFilmes' || e == 'mainSerie' || e == 'mainFamoso'){
+        sup = document.querySelector(`.${e}`);
+        sup.scrollIntoView({behavior: "smooth", block: "center"});
+    }
+    else{
+        sup = e;
+        sup.scrollIntoView({behavior: "smooth", block: "start"});
+    }
+};
