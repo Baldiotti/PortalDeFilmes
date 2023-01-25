@@ -14,6 +14,7 @@ body {
     height: 100vh;
 }
 
+
 /* Cabecalho */
 
 .cabecalho {
@@ -164,6 +165,9 @@ main {
     flex-shrink: 0;
     justify-content: center;
 }
+.itemCarrossel > a:visited {
+    color: #3f0000;
+}
 
 .itemCarrossel > a > img {
     box-shadow: 0px 0px 15px white;
@@ -182,6 +186,7 @@ main {
     box-shadow: 0px 0px 10px white;
     align-items: center;
 }
+
 
 .tituloCarrossel {
     font-family: 'Roboto Slab', serif;
@@ -383,3 +388,6 @@ main {
     color: black;
     font-family: 'Roboto Slab', serif;
 }
+
+
+

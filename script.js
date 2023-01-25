@@ -26,7 +26,7 @@ for(j = 0; j < 4; j++){
                 case 'carrossel':
                     texto = texto + `
                     <div class="itemCarrossel currentItem">
-                    <a href="https://descricao.html?type=movie&id=${filme.id}"><img src="https://image.tmdb.org/t/p/w400/${filme.poster_path}">
+                    <a href=""><img src="https://image.tmdb.org/t/p/w400/${filme.poster_path}">
                     <div class="textoCarrossel">
                     <h3 class="tituloCarrossel">${filme.title}</h3>
                     <span class="resumoCarrossel"><b>Resumo:</b> ${filme.overview}</span>
@@ -39,7 +39,7 @@ for(j = 0; j < 4; j++){
                 case 'mF':
                     texto = texto + `
                     <div class="mF_filmes">
-                        <a href="https://descricao.html?type=movie&id=${filme.id}">
+                        <a href="">
                             <img src="https://image.tmdb.org/t/p/w154/${filme.poster_path}" alt="Poster Filme">
                             <span>${filme.title}</span>
                         </a>
@@ -48,7 +48,7 @@ for(j = 0; j < 4; j++){
                 case 'mS':
                     texto = texto + `
                     <div class="mS_series">
-                        <a href="https://descricao.html?type=tv&id=${filme.id}">
+                        <a href="">
                             <img src="https://image.tmdb.org/t/p/w154/${filme.poster_path}" alt="Poster Serie">
                             <span>${filme.name}</span>
                         </a>
@@ -57,7 +57,7 @@ for(j = 0; j < 4; j++){
                 case 'mFS':
                     texto = texto + `
                     <div class="mFS_famoso">
-                        <a href="https://descricao.html?type=person&id=${filme.id}">
+                        <a href="">
                             <img src="https://image.tmdb.org/t/p/w154/${filme.profile_path}" alt="Foto Famoso">
                             <span class="mFS_escrito">${filme.name}</span>
                         </a>
