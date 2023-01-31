@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="pesquisa.js" defer></script>
+    <title>Pesquisa</title>
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="cab-logo">
+            <a href="index.html">
+                <img src="imagens/logo.png" alt="Logo">
+            </a>
+        </div>
+        <div>
+            <nav class="cab-nav">
+                <button id="btnInicio">Início</button>
+            </nav>
+        </div>
+        <div class="cab-busc">
+            <input type="text" placeholder="Pesquisar..." id="inptPesq">
+            <img src="imagens/pesquisar.svg" alt="pesquisar" id="btnPesq">
+        </div>
+    </header>
+    
+    <main class="mainResult">
+
+        <div class="resultados" id="resultados">
+            <div class="result">
+                <a href="#">
+                    <img src="https://picsum.photos/100/200" alt="Foto Resultado" class="imgResult">
+                    <div class="textoResult">
+                        <span class="txtTitulo">Titulo</span>
+                        <span class="txtResumo">Resumo</span>
+                        <span class="txtTpMd">Tipo de mídia</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="passaPag">
+            <button class="arrMenos"><</button>
+            <button class="btnPri">1</button>
+            <span class="retiPri">...</span>
+            <button class="btnEsq">1</button>
+            <button class="btnMid">2</button>
+            <button class="btnDir">3</button>
+            <span class="retiUlt">...</span>
+            <button id="ultPag" class="btnUlt">X</button>
+            <button class="arrMais">></button>
+        </div>
+    </main>
+    
+    <footer class="rodape">
+        <div class="imgRodape">
+            <a href="https://www.instagram.com/augustobma/" target="_blank"><img src="imagens/instagram.png" alt="Instagram"></a>
+            <a href="https://github.com/Baldiotti" target="_blank"><img src="imagens/github.png" alt="GitHub"></a>
+            <a href="https://linkedin.com/in/augusto-baldiotti" target="_blank"><img src="imagens/linkedin.png" alt="LinkedIn"></a>
+        </div>
+        <div class="copyRodape"><p>Copyright &copy; 2023 - <a href="https://linkedin.com/in/augusto-baldiotti" target="_blank">Augusto Baldiotti</a></p></div>
+    </footer>
+</body>
+</html>

@@ -1,18 +1,23 @@
 let API_key = 'bbc26608abe1711c29ab7d588542521a';
 
-
+/* Array para simplificar os GETs da API */
 var lista = [
     {"url1":"trending","url2": "movie/week", "divTela": "carrossel", "tamDado": "5" },
     {"url1": "movie", "url2": "popular", "divTela": "mF", "tamDado": "10"},
     {"url1": "tv", "url2": "popular", "divTela": "mS", "tamDado": "10"},
     {"url1": "person", "url2": "popular", "divTela": "mFS", "tamDado": "3"}
-]
+];
+
+
 for(j = 0; j < 4; j++){
+    
+    /* Chama a API */
     let xhr = new XMLHttpRequest();
     xhr.onload = exibeCarrossel;
     xhr.open('GET', `https://api.themoviedb.org/3/${lista[j].url1}/${lista[j].url2}?api_key=bbc26608abe1711c29ab7d588542521a&&language=pt-BR`, false);
     xhr.send();
     
+    /* Função que requisitará e já posicionará todos os elementos da Página */
     function exibeCarrossel() {
         let divTela = document.getElementById(lista[j].divTela);
         let texto = '';
@@ -26,12 +31,12 @@ for(j = 0; j < 4; j++){
                 case 'carrossel':
                     texto = texto + `
                     <div class="itemCarrossel currentItem">
-                    <a href=""><img src="https://image.tmdb.org/t/p/w400/${filme.poster_path}">
+                    <a href="descricao.html?type=movie&id=${filme.id}"><img src="https://image.tmdb.org/t/p/w400/${filme.poster_path}">
                     <div class="textoCarrossel">
                     <h3 class="tituloCarrossel">${filme.title}</h3>
                     <span class="resumoCarrossel"><b>Resumo:</b> ${filme.overview}</span>
                     <span class="lancamentoCarrossel"><b>Lançamento:</b> ${data.toLocaleDateString()}</span>
-                    <span class="popularidadeCarrossel"><b>Popularidade:</b> ${filme.vote_average}</span>
+                    <span class="popularidadeCarrossel"><b>Popularidade:</b> ${filme.vote_average.toFixed(2)}</span>
                     </div>
                     </a>
                     </div>`;
@@ -39,7 +44,7 @@ for(j = 0; j < 4; j++){
                 case 'mF':
                     texto = texto + `
                     <div class="mF_filmes">
-                        <a href="">
+                        <a href="descricao.html?type=movie&id=${filme.id}">
                             <img src="https://image.tmdb.org/t/p/w154/${filme.poster_path}" alt="Poster Filme">
                             <span>${filme.title}</span>
                         </a>
@@ -48,7 +53,7 @@ for(j = 0; j < 4; j++){
                 case 'mS':
                     texto = texto + `
                     <div class="mS_series">
-                        <a href="">
+                        <a href="descricao.html?type=tv&id=${filme.id}">
                             <img src="https://image.tmdb.org/t/p/w154/${filme.poster_path}" alt="Poster Serie">
                             <span>${filme.name}</span>
                         </a>
@@ -57,7 +62,7 @@ for(j = 0; j < 4; j++){
                 case 'mFS':
                     texto = texto + `
                     <div class="mFS_famoso">
-                        <a href="">
+                        <a href="descricao.html?type=person&id=${filme.id}">
                             <img src="https://image.tmdb.org/t/p/w154/${filme.profile_path}" alt="Foto Famoso">
                             <span class="mFS_escrito">${filme.name}</span>
                         </a>
@@ -80,13 +85,20 @@ onload = () => {
     document.querySelector('#btnFilme').onclick = () => centraliza('mainFilmes');
     document.querySelector('#btnSerie').onclick = () => centraliza('mainSerie');
     document.querySelector('#btnFamoso').onclick = () => centraliza('mainFamoso');
-    document.querySelector('#btnSobre').onclick = function () {
-        location.href = "index.html";
-    };
+    document.querySelector('#btnPesq').onclick = () => trataPesquisa();
+
+
+    /* Adição do botão Enter para a pesquisa */
+    const input = document.querySelector("#inptPesq");
+    input.addEventListener("keyup", ({key}) => {
+        if (key === "Enter") 
+        trataPesquisaa();
+    });
 };
 
 let currentItem = 0;
 
+/* Função para rodar o carrossel */
 const passatela = (e) => {
     const items = document.querySelectorAll(".itemCarrossel");
     const maxItems = items.length;
@@ -116,8 +128,7 @@ const passatela = (e) => {
 };
 
 
-
-
+/* Função para expandir o bloco tanto de Filme quanto de Serie */
 const expandeFilme = (e) => {
     let el = document.querySelector(`.${e}`);
     if(el.style.height == '800px'){
@@ -134,7 +145,7 @@ const expandeFilme = (e) => {
 };
 
 
-
+/* Função para centralizar o bloco que for expandido */
 const centraliza = (e) => {
     let sup;
     if(e == 'mainFilmes' || e == 'mainSerie' || e == 'mainFamoso'){
@@ -146,3 +157,12 @@ const centraliza = (e) => {
         sup.scrollIntoView({behavior: "smooth", block: "start"});
     }
 };
+
+
+/* Tratamento para a pesquisa */
+const trataPesquisa = () => {
+    let valuePesq = document.getElementById('inptPesq').value;
+    valuePesq = valuePesq.replaceAll(' ', '%20');
+    console.log(valuePesq);
+    location.href = `pesquisa.html?type=${valuePesq}&pag=1`;
+}
