@@ -148,7 +148,7 @@ onload = () => {
     const input = document.querySelector("#inptPesq");
     input.addEventListener("keyup", ({key}) => {
         if (key === "Enter") 
-        trataPesquisaa();
+        trataPesquisa();
     });
 }
 
@@ -162,7 +162,7 @@ const passaResult = (x) => {
 
 document.querySelector('#btnPesq').onclick = () => trataPesquisaa();
 
-const trataPesquisaa = () => {
+const trataPesquisa = () => {
     let valuePesq = document.getElementById('inptPesq').value;
     valuePesq = valuePesq.replaceAll(' ', '%20');
     console.log(valuePesq);

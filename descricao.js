@@ -107,12 +107,12 @@ onload = () => {
     const input = document.querySelector("#inptPesq");
     input.addEventListener("keyup", ({key}) => {
         if (key === "Enter") 
-        trataPesquisaa();
+        trataPesquisa();
     });
 }
 
 /* Tratamento para a pesquisa */
-const trataPesquisaa = () => {
+const trataPesquisa = () => {
     let valuePesq = document.getElementById('inptPesq').value;
     valuePesq = valuePesq.replaceAll(' ', '%20');
     console.log(valuePesq);

@@ -92,7 +92,7 @@ onload = () => {
     const input = document.querySelector("#inptPesq");
     input.addEventListener("keyup", ({key}) => {
         if (key === "Enter") 
-        trataPesquisaa();
+        trataPesquisa();
     });
 };
 
